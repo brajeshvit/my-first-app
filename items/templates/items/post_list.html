@@ -1,0 +1,13 @@
+{% extends "items/base.html" %}
+
+{% block content %}
+    {% for List_items in posts %}
+        <div class="post">
+            <div class="date">
+                {{ List_items.created_date }}
+            </div>
+            <h1><a href="{% url 'post_detail' pk=List_items.pk %}"> {{ List_items.title }}</a></h1>
+            <p>{{ List_items.text|linebreaks }}</p>
+        </div>
+    {% endfor %}
+{% endblock content %}
